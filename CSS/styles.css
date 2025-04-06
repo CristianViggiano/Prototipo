@@ -1,0 +1,169 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #0077b6;
+    color: white;
+    padding: 1rem 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+header img {
+    float: left;
+    width: 150px;
+    height: auto;
+    display: block; /* Asegura que se comporte como un elemento independiente */
+}
+
+header nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-end; /* Alinea los elementos de la lista hacia la derecha */
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+header .acciones {
+    display: flex;
+    gap: 0.5rem;
+}
+
+header .acciones .boton {
+    background-color: white;
+    color: #0077b6;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+header .acciones .boton:hover {
+    background-color: #ddd;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url(../IMG/portada.webp);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.hero .hero-btn {
+    background-color: white;
+    color: #0077b6;
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Oportunidades Section */
+#oportunidades {
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.card-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.card {
+    background-color: white;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #f4f4f9;
+}
+
+#card1 {
+    background-image: url(../IMG/granja-ecologica.webp);
+    background-size: cover;
+    background-position: center;
+}
+
+#card2 {
+    background-image: url(../IMG/escuela-comunitaria.webp);
+    background-size: cover;
+    background-position: center;
+}
+
+#card3 {
+    background-image: url(../IMG/refugio-animal.webp);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Testimonios Section */
+#testimonios {
+    padding: 2rem;
+    text-align: center;
+    background-color: white;
+}
+
+.testimonios-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.testimonio {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #023047;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
