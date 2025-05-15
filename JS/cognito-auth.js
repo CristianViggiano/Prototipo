@@ -1,3 +1,5 @@
+/*global UnoServerLess _config AmazonCognitoIdentity AWSCognito*/
+
 var UnoServerLess = window.UnoServerLess || {};
 
 (function scopeWrapper($) {
