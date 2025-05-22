@@ -4,35 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voluntariado</title>
-    <link rel="stylesheet" href="CSS/font.css">
-    <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="CSS/styles.css">
-
+    <script src="../JS/script.js" defer></script>
     <script src="JS/vendor/modernizr.js"></script>
 </head>
 <body>
     <header>
-        <div class="container">
             <nav>
                 <img class="logo" src="IMG/manos-unidas-logo.png" alt="">                
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#oportunidades">Oportunidades</a></li>
-                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="oportunidades.html">Oportunidades</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
                 <div class="acciones">
-                    <a class="home-button"  href="register.html">Registrar</a>
-                    <a class="home-button"  href="signin.html">Iniciar Sesión</a>
+                    <a class="hero-btn"  href="register.html">Registrarse</a>
+                    <a class="hero-btn"  href="signin.html">Iniciar Sesión</a>
                 </div>
             </nav>
-        </div>
     </header>
     <main>
         <section id="inicio" class="hero">
             <h2>Descubre oportunidades de voluntariado transformadoras</h2>
             <p>Conecta con organizaciones y crea un impacto positivo en tu comunidad.</p>
-            <button class="boton hero-btn">Explorar Oportunidades</button>
+            <a class="hero-btn" href="oportunidades.html">Explorar Oportunidades</a>
         </section>
         <section id="oportunidades">
             <h2>Oportunidades Destacadas</h2>
@@ -47,32 +42,38 @@
                 </div>
                 <div class="card" id="card3">
                     <h3>Rescate Animal</h3>
-                    <p>Contribuye a la educación en comunidades vulnerables.</p>
+                    <p>Apoya en el cuidado y la protección de animales en refugios.</p>
                 </div>
             </div>
         </section>
         <section id="testimonios">
             <h2>Testimonios</h2>
-            <div class="testimonios-container">
-                <div class="testimonio">
-                    <img class="avatar" src="IMG/perfil1.jpg" alt="Testimonio 1">
-                    <p>"Una experiencia transformadora que cambió mi vida."</p>
-                    <h4>- Juan Pérez</h4>
+            <div class="carousel">
+                <div class="testimonios-container">
+                    <div class="testimonio">
+                        <img class="avatar" src="../IMG/perfil1.jpg" alt="Testimonio 1">
+                        <p>"Una experiencia transformadora que cambió mi vida."</p>
+                        <h4>- Juan Pérez</h4>
+                    </div>
+                    <div class="testimonio">
+                        <img class="avatar" src="../IMG/perfil2.jpg" alt="Testimonio 2">
+                        <p>"Conocí personas increíbles y aprendí mucho."</p>
+                        <h4>- María López</h4>
+                    </div>
+                    <!-- Agrega más testimonios si quieres -->
                 </div>
-                <div class="testimonio">
-                    <img class="avatar" src="IMG/perfil2.jpg" alt="Testimonio 1">
-                    <p>"Conocí personas increíbles y aprendí mucho."</p>
-                    <h4>- María López</h4>
-                </div>
+                <button class="prev" aria-label="Anterior">&#10094;</button>
+                <button class="next" aria-label="Siguiente">&#10095;</button>
+                <div class="dots-container"></div>
             </div>
         </section>
         <footer>
             <p>&copy; 2025 Plataforma de Voluntariado. Todos los derechos reservados.</p>
         </footer>
-
+<!-- 
         <script src="JS/vendor.js"></script>
 
-        <script src="JS/main.js"></script>
+        <script src="JS/main.js"></script> -->
     </main>
 </body>
 </html>

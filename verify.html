@@ -5,8 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>Voluntariado</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -14,7 +13,7 @@
 
         <link rel="stylesheet" href="CSS/font.css">
         <link rel="stylesheet" href="CSS/normalize.css">
-        <link rel="stylesheet" href="CSS/index.css">
+        <link rel="stylesheet" href="CSS/styles.css">
         <link rel="stylesheet" href="CSS/message.css">
     </head>
     <body>
@@ -35,19 +34,32 @@
         </div>
 
         <header>
-          <img src="images/logo.png">
+            <nav>
+                <img class="logo" src="../IMG/manos-unidas-logo.png" alt="">
+            </nav>
         </header>
-
-
-        <section class="form-wrap">
-            <h1>Verify Email</h1>
-            <form id="verifyForm">
-              <input type="email" id="emailInputVerify" placeholder="Email" required>
-              <input type="text" id="codeInputVerify" placeholder="Verification Code" pattern=".*" required>
-
-              <input type="submit" value="Verify">
-            </form>
-        </section>
+        <main>
+            <section id="inicio" class="card-container">
+                <div class="card">
+                    <img id="inverted-logo-color" src="../IMG/manos-unidas-logo.png" alt="Logo de la Plataforma de Voluntariado">
+                    <form id="verifyForm" class="formulario">
+                        <span>Verifica tu correo</span>
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="emailInputVerify" placeholder="Email" required>
+                        <label for="password">Código de verificación:</label>
+                        <input type="text" id="codeInputVerify" placeholder="Código de verificación" pattern=".*" required>
+    <!--  
+                        <h5>¿No tienes una cuenta? <a href="register.html">Regístrate aquí</a></h5>
+                        <h5>¿Olvidaste tu contraseña? <a href="recuperar-contrasena.html">Recupera aquí</a></h5>
+    -->
+                        <input type="submit" value="Sign in">
+                    </form>
+                </div>
+            </section>
+            <footer>
+                <p>&copy; 2025 Plataforma de Voluntariado. Todos los derechos reservados.</p>
+            </footer>
+        </main>
 
         <script src="JS/vendor/jquery-3.1.0.js"></script>
         <script src="JS/vendor/bootstrap.min.js"></script>

@@ -4,17 +4,12 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Voluntariado</title>
+        <link rel="stylesheet" href="CSS/styles.css">
         <link rel="stylesheet" href="CSS/font.css">
         <link rel="stylesheet" href="CSS/normalize.css">
-        <link rel="stylesheet" href="CSS/index.css">
         <link rel="stylesheet" href="CSS/message.css">
     </head>
     <body>
@@ -35,21 +30,37 @@
         </div>
 
         <header>
-            <div class="container">
-                <img class="logo" src="IMG/manos-unidas-logo.png" alt="">
-            </div>
+            <nav>
+                <img class="logo" src="../IMG/manos-unidas-logo.png" alt="">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="oportunidades.html">Oportunidades</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="acciones">
+                    <a class="hero-btn" href="signin.html">Iniciar Sesión</a>
+                </div>
+            </nav>
         </header>
-
-        <section class="form-wrap">
-            <h1>Register</h1>
-            <form id="registrationForm">
-              <input type="email" id="emailInputRegister" placeholder="Email" pattern=".*" required>
-              <input type="password" id="passwordInputRegister" placeholder="Password" pattern=".*" required>
-              <input type="password" id="password2InputRegister" placeholder="Confirm Password" pattern=".*" required>
-
-              <input type="submit" value="Registrar">
-            </form>
-        </section>
+        <main>
+            <section id="inicio" class="card-container">
+                <div class="card">
+                    <img id="inverted-logo-color" src="../IMG/manos-unidas-logo.png" alt="Logo de la Plataforma de Voluntariado">
+                    <form id="registrationForm" class="formulario">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="emailInputRegister" placeholder="Email" pattern=".*" required>
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="passwordInputRegister" placeholder="Password" pattern=".*" required>
+                        <label for="confirmar-password">Confirmar Contraseña:</label>
+                        <input type="password" id="password2InputRegister" placeholder="Confirmar Password" pattern=".*" required>
+                        <input type="submit" value="Registrar">
+                    </form>
+                </div>
+            </section>
+            <footer>
+                <p>&copy; 2025 Plataforma de Voluntariado. Todos los derechos reservados.</p>
+            </footer>
+        </main>
 
         <script src="JS/vendor/jquery-3.1.0.js"></script>
         <script src="JS/vendor/bootstrap.min.js"></script>
