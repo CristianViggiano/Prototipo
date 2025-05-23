@@ -385,3 +385,25 @@ h5 {
     max-width: 10rem;
     align-self: center;
 }
+
+/* Formulario de nuevo post */
+table {
+    display: flex;
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+.col{
+    display: flex;
+    gap: 1rem;  
+}
+
+input[type="number"]
+{
+    -webkit-appearance: textfield !important;
+    margin: 0;
+    -moz-appearance:textfield !important;
+}

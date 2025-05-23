@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Voluntariado</title>
+        <link rel="stylesheet" href="CSS/styles.css">
+        <link rel="stylesheet" href="CSS/font.css">
+        <link rel="stylesheet" href="CSS/normalize.css">
+        <link rel="stylesheet" href="CSS/message.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="noCognitoMessage" class="configMessage" style="display: none;">
+            <div class="backdrop"></div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">No Cognito User Pool Configured</h3>
+                </div>
+                <div class="panel-body">
+                    <p>There is no user pool configured in <a href="JS/config.js">/js/config.js</a>. You'll configure this in Module 2 of the workshop.</p>
+                </div>
+            </div>
+        </div>
+
+        <header>
+            <nav>
+                <img class="logo" src="IMG/manos-unidas-logo.png" alt="">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="oportunidades.html">Oportunidades</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="acciones">
+                    <a class="hero-btn" href="register.html">Registrarse</a>
+                </div>
+            </nav>
+        </header>
+        <main>
+        <section id="inicio" class="card-container">
+            <div class="card">
+                <img id="inverted-logo-color" src="IMG/manos-unidas-logo.png" alt="Logo de la Plataforma de Voluntariado">
+                <form id="postForm" class="formulario">
+                    <h2>Crear un nuevo post</h2>
+                    <table>
+                        <tr>
+                            <td class="col">
+                                <label for="project">Nombre del proyecto:</label>
+                                <input type="text" id="nameInputProject" placeholder="Ingrese nombre" required>
+                            </td>
+                            <td class="col">
+                                <label for="location">Provincia de ubicación:</label>
+                                <select id="provinciaInputProject" required>
+                                    <option value="" disabled selected>Seleccione una provincia</option>
+                                    <option value="Buenos Aires">Buenos Aires</option>
+                                    <option value="CABA">CABA</option>
+                                    <option value="Catamarca">Catamarca</option>
+                                    <option value="Chaco">Chaco</option>
+                                    <option value="Chubut">Chubut</option>
+                                    <option value="Cordoba">Córdoba</option>
+                                    <option value="Corrientes">Corrientes</option>
+                                    <option value="Entre Ríos">Entre Ríos</option>
+                                    <option value="Formosa">Formosa</option>
+                                    <option value="Jujuy">Jujuy</option>
+                                    <option value="La Pampa">La Pampa</option>
+                                    <option value="La Rioja">La Rioja</option>
+                                    <option value="Mendoza">Mendoza</option>
+                                    <option value="Misiones">Misiones</option>
+                                    <option value="Neuquen">Neuquén</option>
+                                    <option value="Salta">Salta</option>
+                                    <option value="San Juan">San Juan</option>
+                                    <option value="San Luis">San Luis</option>
+                                    <option value="Santa Cruz">Santa Cruz</option>
+                                    <option value="Santa Fe">Santa Fe</option>
+                                    <option value="Santiago del Estero">Santiago del Estero</option>
+                                    <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                    <option value="Tucuman">Tucumán</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col">
+                                <label for="title">Título:</label>
+                                <input type="text" id="titleInputProject" placeholder="Ingrese título" required>
+                            </td>
+                            <td class="col">
+                                <label for="category">Tipo de proyecto:</label>
+                                <input type="text" id="categoryInputProject" placeholder="Ingrese tipo de proyecto" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col">
+                                <label for="duration">Horas por semana (entre 10 y 20):</label>
+                                <input type="number" min="10" max="20" id="durationInputProject" placeholder="Ingrese Hs./Semana" required>
+                            </td>
+                            <td class="col">
+                                <label for="description">Descripción:</label>
+                                <input type="text" id="descriptionInputProject" placeholder="Ingrese descripción" required>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit" value="Publicar">
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Plataforma de Voluntariado. Todos los derechos reservados.</p>
+    </footer>
+
+        <script src="JS/vendor/jquery-3.1.0.js"></script>
+        <script src="JS/vendor/bootstrap.min.js"></script>
+        <script src="JS/vendor/aws-cognito-sdk.min.js"></script>
+        <script src="JS/vendor/amazon-cognito-identity.min.js"></script>
+        <script src="JS/config.js"></script>
+        <script src="JS/cognito-auth.js"></script>
+    </body>
+</html>
