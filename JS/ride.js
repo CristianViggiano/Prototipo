@@ -1,28 +1,14 @@
-/*global WildRydes _config*/
+/*global UnoServerLess _config*/
 
-var WildRydes = window.WildRydes || {};
-WildRydes.map = WildRydes.map || {};
-
-/*
-WildRydes.authToken = new Promise((resolve, reject) => {
-    // Simulación de obtención de token
-    setTimeout(() => {
-        const token = "your-auth-token"; // Reemplaza esto con la lógica real para obtener el token
-        if (token) {
-            resolve(token);
-        } else {
-            reject("No se pudo obtener el token");
-        }
-    }, 1000);
-});
-*/
+var UnoServerLess = window.UnoServerLess || {};
+UnoServerLess.map = UnoServerLess.map || {};
 
 
-console.log(WildRydes.authToken);
+//console.log(UnoServerLess.authToken);
 
 (function rideScopeWrapper($) {
     var authToken;
-    WildRydes.authToken.then(function setAuthToken(token) {
+    UnoServerLess.authToken.then(function setAuthToken(token) {
         if (token) {
             authToken = token;
         } else {
@@ -64,7 +50,7 @@ console.log(WildRydes.authToken);
         displayUpdate(unicorn.Name + ', your ' + unicorn.Color + ' unicorn, is on ' + pronoun + ' way.');
         animateArrival(function animateCallback() {
             displayUpdate(unicorn.Name + ' has arrived. Giddy up!');
-            WildRydes.map.unsetLocation();
+            UnoServerLess.map.unsetLocation();
             $('#request').prop('disabled', 'disabled');
             $('#request').text('Set Pickup');
         });
@@ -73,9 +59,9 @@ console.log(WildRydes.authToken);
     // Register click handler for #request button
     $(function onDocReady() {
         $('#request').click(handleRequestClick);
-        $(WildRydes.map).on('pickupChange', handlePickupChanged);
+        $(UnoServerLess.map).on('pickupChange', handlePickupChanged);
 
-        WildRydes.authToken.then(function updateAuthMessage(token) {
+        UnoServerLess.authToken.then(function updateAuthMessage(token) {
             if (token) {
                 displayUpdate('You are authenticated. Click to see your <a href="#authTokenModal" data-toggle="modal">auth token</a>.');
                 $('.authToken').text(token);
@@ -94,28 +80,28 @@ console.log(WildRydes.authToken);
     }
 
     function handleRequestClick(event) {
-        var pickupLocation = WildRydes.map.selectedPoint;
+        var pickupLocation = UnoServerLess.map.selectedPoint;
         event.preventDefault();
         requestUnicorn(pickupLocation);
     }
 
     function animateArrival(callback) {
-        var dest = WildRydes.map.selectedPoint;
+        var dest = UnoServerLess.map.selectedPoint;
         var origin = {};
 
-        if (dest.latitude > WildRydes.map.center.latitude) {
-            origin.latitude = WildRydes.map.extent.minLat;
+        if (dest.latitude > UnoServerLess.map.center.latitude) {
+            origin.latitude = UnoServerLess.map.extent.minLat;
         } else {
-            origin.latitude = WildRydes.map.extent.maxLat;
+            origin.latitude = UnoServerLess.map.extent.maxLat;
         }
 
-        if (dest.longitude > WildRydes.map.center.longitude) {
-            origin.longitude = WildRydes.map.extent.minLng;
+        if (dest.longitude > UnoServerLess.map.center.longitude) {
+            origin.longitude = UnoServerLess.map.extent.minLng;
         } else {
-            origin.longitude = WildRydes.map.extent.maxLng;
+            origin.longitude = UnoServerLess.map.extent.maxLng;
         }
 
-        WildRydes.map.animate(origin, dest, callback);
+        UnoServerLess.map.animate(origin, dest, callback);
     }
 
     function displayUpdate(text) {
