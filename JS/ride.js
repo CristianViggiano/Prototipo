@@ -3,22 +3,39 @@
 var WildRydes = window.WildRydes || {};
 WildRydes.map = WildRydes.map || {};
 
+/*
+WildRydes.authToken = new Promise((resolve, reject) => {
+    // Simulación de obtención de token
+    setTimeout(() => {
+        const token = "your-auth-token"; // Reemplaza esto con la lógica real para obtener el token
+        if (token) {
+            resolve(token);
+        } else {
+            reject("No se pudo obtener el token");
+        }
+    }, 1000);
+});
+*/
+
+
+console.log(WildRydes.authToken);
+
 (function rideScopeWrapper($) {
     var authToken;
     WildRydes.authToken.then(function setAuthToken(token) {
         if (token) {
             authToken = token;
         } else {
-            window.location.href = '/signin.html';
+            window.location.href = "signin.html";
         }
     }).catch(function handleTokenError(error) {
         alert(error);
-        window.location.href = '/signin.html';
+        window.location.href = "signin.html";
     });
     function requestUnicorn(pickupLocation) {
         $.ajax({
             method: 'POST',
-            url: _config.api.invokeUrl + '/ride',
+            url: _config.api.invokeUrl + 'ride',
             headers: {
                 Authorization: authToken
             },
