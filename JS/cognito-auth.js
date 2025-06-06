@@ -3,7 +3,7 @@
 var UnoServerLess = window.UnoServerLess || {};
 
 (function scopeWrapper($) {
-    var signinUrl = '/signin.html';  /* VER ESTE HTML */
+    var signinUrl = 'signin.html';  /* VER ESTE HTML */
 
     var poolData = {
         UserPoolId: _config.cognito.userPoolId,
@@ -26,11 +26,14 @@ var UnoServerLess = window.UnoServerLess || {};
     }
 
     UnoServerLess.signOut = function signOut() {
+        console.log("SignOut");
         userPool.getCurrentUser().signOut();
     };
 
     UnoServerLess.authToken = new Promise(function fetchCurrentAuthToken(resolve, reject) {
         var cognitoUser = userPool.getCurrentUser();
+
+        //console.log(cognitoUser.username);
 
         if (cognitoUser) {
             cognitoUser.getSession(function sessionCallback(err, session) {
@@ -40,9 +43,26 @@ var UnoServerLess = window.UnoServerLess || {};
                     resolve(null);
                 } else {
                     resolve(session.getIdToken().getJwtToken());
+                    //console.log(cognitoUser.username);
                 }
             });
+            console.log(cognitoUser);
+            console.log(cognitoUser.username);
+            document.getElementById('user-name').innerText = `Hola, ${cognitoUser.username}`;
+            if (document.getElementById('reg-btn'))
+                document.getElementById('reg-btn').style.display = 'none';
+            if (document.getElementById('sin-btn'))
+                document.getElementById('sin-btn').style.display = 'none';
+            if (document.getElementById('singOut2'))
+                document.getElementById('singOut2').style.display = 'block';
         } else {
+            document.getElementById('user-name').innerText = ``;
+            if (document.getElementById('reg-btn'))
+                document.getElementById('reg-btn').style.display = 'block';
+            if (document.getElementById('sin-btn'))
+                document.getElementById('sin-btn').style.display = 'block';
+            if (document.getElementById('singOut2'))
+                document.getElementById('singOut2').style.display = 'none';
             resolve(null);
         }
     });
@@ -170,4 +190,26 @@ var UnoServerLess = window.UnoServerLess || {};
             }
         );
     }
+
+    if (document.getElementById('signOut2')){
+        console.log('existe el elemento')
+        document.getElementById('signOut2').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita que el enlace navegue a otra página
+                console.log('se intenta llamar al logOut')
+                UnoServerLess.signOut();
+                console.log('Usuario cerrado sesión');
+            
+        });
+    }
+
+    if (document.getElementById('signOut')){
+        document.getElementById('signOut').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita que el enlace navegue a otra página
+
+                UnoServerLess.signOut();
+                console.log('Usuario cerrado sesión');
+            
+        });
+    }
+
 }(jQuery));

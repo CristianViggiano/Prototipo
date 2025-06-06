@@ -1,5 +1,4 @@
 /*global UnoServerLess _config*/
-
 var UnoServerLess = window.UnoServerLess || {};
 UnoServerLess.map = UnoServerLess.map || {};
 
@@ -14,6 +13,7 @@ UnoServerLess.map = UnoServerLess.map || {};
         } else {
             window.location.href = "signin.html";
         }
+        
     }).catch(function handleTokenError(error) {
         alert(error);
         window.location.href = "signin.html";
@@ -63,7 +63,7 @@ UnoServerLess.map = UnoServerLess.map || {};
 
         UnoServerLess.authToken.then(function updateAuthMessage(token) {
             if (token) {
-                displayUpdate('You are authenticated. Click to see your <a href="#authTokenModal" data-toggle="modal">auth token</a>.');
+                 displayUpdate('You are authenticated. Click to see your <a href="#authTokenModal" data-toggle="modal">auth token</a>.');
                 $('.authToken').text(token);
             }
         });
