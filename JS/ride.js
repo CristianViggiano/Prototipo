@@ -21,7 +21,7 @@ UnoServerLess.map = UnoServerLess.map || {};
     function requestUnicorn(pickupLocation) {
         $.ajax({
             method: 'POST',
-            url: _config.api.invokeUrl + 'ride',
+            url: _config.api.invokeUrl + '/Voluntario',
             headers: {
                 Authorization: authToken
             },
