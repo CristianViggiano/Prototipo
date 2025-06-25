@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oportunidades</title>
     <link rel="stylesheet" href="CSS/styles.css">
-<!--<script src="JS/vendor/jquery-3.1.0.js"></script>
+    <script src="JS/vendor/jquery-3.1.0.js"></script>
     <script src="JS/vendor/modernizr.js"></script>
     <script src="JS/vendor/aws-cognito-sdk.min.js"></script>
     <script src="JS/vendor/amazon-cognito-identity.min.js"></script>
     <script src="JS/config.js"></script>
-    <script src="JS/cognito-auth.js"></script>-->
+<!--<script src="JS/cognito-auth.js"></script>-->
     <script src="JS/script.js" defer></script>
 </head>
 <body>
     <header>
         <nav>
-            <img class="logo" src="IMG/manos-unidas-logo.png" alt="">
+            <img class="logo" src="IMG/manos-unidas-logo.png" alt="">                
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="oportunidades.html">Oportunidades</a></li>
@@ -24,8 +24,9 @@
             </ul>
             <div class="acciones">
                 <a id="user-name">Test</a>
-                <a class="hero-btn" href="register.html">Registrarse</a>
-                <a class="hero-btn" href="signin.html">Iniciar Sesión</a>
+                <a id="reg-btn" class="hero-btn"  href="register.html">Registrarse</a>
+                <a id="sin-btn" class="hero-btn"  href="signin.html">Iniciar Sesión</a>
+                <a id="signOut2" class="hero-btn"  href="#">Cerrar Sesión</a>
             </div>
         </nav>
     </header>
@@ -50,6 +51,7 @@
             </div>
             
         </div>
+        <script src="JS/cognito-auth.js"></script>
     </main>
     <footer>
         <p>&copy; 2025 Plataforma de Voluntariado. Todos los derechos reservados.</p>
