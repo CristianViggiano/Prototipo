@@ -26,6 +26,7 @@
                 <a id="user-name">Test</a>
                 <a id="reg-btn" class="hero-btn"  href="register.html">Registrarse</a>
                 <a id="sin-btn" class="hero-btn"  href="signin.html">Iniciar Sesión</a>
+                <a id="new-btn" class="hero-btn"  href="crear-post.html">Nuevo</a>
                 <a id="signOut2" class="hero-btn"  href="#">Cerrar Sesión</a>
             </div>
         </nav>
@@ -55,6 +56,51 @@
             </div>
             
         </div>
+        <script>
+            
+            async function mostrarResultados() {
+                let apiData;
+                try {
+                    const result = await fetch('https://6eqz1f0191.execute-api.sa-east-1.amazonaws.com/dev/CargarOportunidad')
+                    apiData = await result.json();
+                    const message = apiData;
+                    //console.log(message);
+                    apiData.forEach(item => {
+                
+                        // Crear un nuevo elemento li
+                        const newLi = document.createElement('li');
+
+                        // Crear el contenido del nuevo li
+                        newLi.innerHTML = `
+                        <div class="card-oportunidad">
+                            <div style="display: block">
+                                <img src=${item.Url} alt="Voluntariado">
+                                <a style="display: block">${item.User}</a>
+                            </div>
+                            <div class="card-content">
+                            <p><strong>${item.ProName}</strong> • ${item.Ubi}</p>
+                            <h3>${item.Title}</h3>
+                            <p class="tags">${item.HxS}h/sem • ${item.Type}</p>
+                            <p class="tags">${item.Desc}</p>
+                            <a href="" id=${item.OpoId} class="opor-btn">Aplicar</a>
+                            </div>
+                        </div>
+                        `;
+
+                        // Insertar el nuevo li en el ul
+                        document.querySelector('.opportunities-list').appendChild(newLi);
+
+                        });
+                    
+                    
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+            mostrarResultados();
+        </script>
+
+
         <script src="JS/cognito-auth.js"></script>
     </main>
     <footer>

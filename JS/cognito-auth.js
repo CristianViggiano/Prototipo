@@ -55,6 +55,8 @@ var UnoServerLess = window.UnoServerLess || {};
                 document.getElementById('sin-btn').style.display = 'none';
             if (document.getElementById('signOut2'))
                 document.getElementById('signOut2').style.display = 'block';
+            if (document.getElementById('new-btn'))
+                document.getElementById('new-btn').style.display = 'block';
         } else {
             document.getElementById('user-name').innerText = ``;
             if (document.getElementById('reg-btn'))
@@ -63,6 +65,8 @@ var UnoServerLess = window.UnoServerLess || {};
                 document.getElementById('sin-btn').style.display = 'block';
             if (document.getElementById('signOut2'))
                 document.getElementById('signOut2').style.display = 'none';
+            if (document.getElementById('new-btn'))
+                document.getElementById('new-btn').style.display = 'none';
             resolve(null);
         }
     });
@@ -201,13 +205,68 @@ var UnoServerLess = window.UnoServerLess || {};
         });
     }
 
-    if (document.getElementById('signOut')){
-        document.getElementById('signOut').addEventListener('click', function(event) {
-            event.preventDefault(); // Evita que el enlace navegue a otra página
-            UnoServerLess.signOut();
-            console.log('Usuario cerrado sesión');
-            
-        });
-    }
+
+    var authToken;
+    UnoServerLess.authToken.then(function setAuthToken(token) {
+        if (token) {
+            authToken = token;
+        } else {
+           // window.location.href = "signin.html";
+        }
+        
+    }).catch(function handleTokenError(error) {
+        alert(error);
+       // window.location.href = "signin.html";
+    });
+
+
+    document.getElementById('postForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar el envío del formulario por defecto
+    var cognitoUser = userPool.getCurrentUser();
+    
+    
+    // Capturar los datos del formulario
+    const name = document.getElementById('nameInputProject').value;
+    const location = document.getElementById('provinciaInputProject').value;
+    const title = document.getElementById('titleInputProject').value;
+    const category = document.getElementById('categoryInputProject').value;
+    const hours = document.getElementById('durationInputProject').value;
+    const description = document.getElementById('descriptionInputProject').value;
+
+
+    // Crear el objeto JSON con el formato especificado
+    const data = {
+        User: cognitoUser.username,
+        Url: "https://petepua.com/wp-content/uploads/2022/12/Refugio-Patitas-de-San-Vicente-logo.-heroes-sin-capa.--150x150.jpg",
+        ProName: name,
+        Ubi: location,
+        Title: title,
+        HxS: parseInt(hours),
+        Type: category,
+        Desc: description
+    };
+   
+    // Enviar los datos al API Gateway de Amazon
+    fetch('https://6eqz1f0191.execute-api.sa-east-1.amazonaws.com/dev/Voluntario', {
+        method: 'POST',
+        headers: {
+            Authorization: authToken,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+});
+
+
+
+
 
 }(jQuery));
