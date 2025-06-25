@@ -48,7 +48,7 @@ var UnoServerLess = window.UnoServerLess || {};
             });
             //console.log(cognitoUser);
             //console.log(cognitoUser.username);
-            document.getElementById('user-name').innerText = `Hola, ${cognitoUser.username}`;
+            document.getElementById('user-name').innerText = cognitoUser.username;
             if (document.getElementById('reg-btn'))
                 document.getElementById('reg-btn').style.display = 'none';
             if (document.getElementById('sin-btn'))
@@ -219,54 +219,51 @@ var UnoServerLess = window.UnoServerLess || {};
        // window.location.href = "signin.html";
     });
 
-
+    if (document.getElementById('postForm')){
     document.getElementById('postForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar el envío del formulario por defecto
-    var cognitoUser = userPool.getCurrentUser();
-    
-    
-    // Capturar los datos del formulario
-    const name = document.getElementById('nameInputProject').value;
-    const location = document.getElementById('provinciaInputProject').value;
-    const title = document.getElementById('titleInputProject').value;
-    const category = document.getElementById('categoryInputProject').value;
-    const hours = document.getElementById('durationInputProject').value;
-    const description = document.getElementById('descriptionInputProject').value;
+        event.preventDefault(); // Evitar el envío del formulario por defecto
+        var cognitoUser = userPool.getCurrentUser();
+        
+        
+        // Capturar los datos del formulario
+        const name = document.getElementById('nameInputProject').value;
+        const location = document.getElementById('provinciaInputProject').value;
+        const title = document.getElementById('titleInputProject').value;
+        const category = document.getElementById('categoryInputProject').value;
+        const hours = document.getElementById('durationInputProject').value;
+        const description = document.getElementById('descriptionInputProject').value;
 
 
-    // Crear el objeto JSON con el formato especificado
-    const data = {
-        User: cognitoUser.username,
-        Url: "https://petepua.com/wp-content/uploads/2022/12/Refugio-Patitas-de-San-Vicente-logo.-heroes-sin-capa.--150x150.jpg",
-        ProName: name,
-        Ubi: location,
-        Title: title,
-        HxS: parseInt(hours),
-        Type: category,
-        Desc: description
-    };
-   
-    // Enviar los datos al API Gateway de Amazon
-    fetch('https://6eqz1f0191.execute-api.sa-east-1.amazonaws.com/dev/Voluntario', {
-        method: 'POST',
-        headers: {
-            Authorization: authToken,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch(error => {
-        console.error('Error:', error);
+        // Crear el objeto JSON con el formato especificado
+        const data = {
+            User: cognitoUser.username,
+            Url: "https://petepua.com/wp-content/uploads/2022/12/Refugio-Patitas-de-San-Vicente-logo.-heroes-sin-capa.--150x150.jpg",
+            ProName: name,
+            Ubi: location,
+            Title: title,
+            HxS: parseInt(hours),
+            Type: category,
+            Desc: description
+        };
+    
+        // Enviar los datos al API Gateway de Amazon
+        fetch('https://6eqz1f0191.execute-api.sa-east-1.amazonaws.com/dev/Voluntario', {
+            method: 'POST',
+            headers: {
+                Authorization: authToken,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
     });
-
-});
-
-
-
-
+    }
 
 }(jQuery));

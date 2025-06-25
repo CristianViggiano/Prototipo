@@ -11,7 +11,7 @@
     <script src="JS/vendor/amazon-cognito-identity.min.js"></script>
     <script src="JS/config.js"></script>
 <!--<script src="JS/cognito-auth.js"></script>-->
-    <script src="JS/script.js" defer></script>
+<!--<script src="JS/script.js" defer></script>-->
 </head>
 <body>
     <header>
@@ -36,6 +36,7 @@
 
             <div class="content">
                 <ul class="opportunities-list">
+                <!--
                     <li>
                         <div class="card-oportunidad">
                             <div style="display: block">
@@ -51,15 +52,17 @@
                             </div>
                         </div>
                     </li>
-                    
+                -->
                 </ul>
             </div>
             
         </div>
+        <script src="JS/cognito-auth.js"></script>
         <script>
-            
+        
             async function mostrarResultados() {
                 let apiData;
+                let userName = document.getElementById('user-name').textContent;
                 try {
                     const result = await fetch('https://6eqz1f0191.execute-api.sa-east-1.amazonaws.com/dev/CargarOportunidad')
                     apiData = await result.json();
@@ -81,14 +84,37 @@
                             <p><strong>${item.ProName}</strong> • ${item.Ubi}</p>
                             <h3>${item.Title}</h3>
                             <p class="tags">${item.HxS}h/sem • ${item.Type}</p>
-                            <p class="tags">${item.Desc}</p>
-                            <a href="" id=${item.OpoId} class="opor-btn">Aplicar</a>
+                            <p class="tags">${item.Desc}</p><p></p>
+                            <a href="" id="opo_${item.OpoId}"" class="opor-btn" style="display: none">Aplicar</a>
+                            <a href="" id="del_${item.OpoId}" class="del-btn" style="display: none">Borrar</a>
                             </div>
                         </div>
                         `;
-
                         // Insertar el nuevo li en el ul
                         document.querySelector('.opportunities-list').appendChild(newLi);
+                        //console.log('del_'+item.OpoId)
+                        if (item.User == userName){
+                            document.getElementById('del_'+item.OpoId).style.display = '';
+                            document.getElementById('del_'+item.OpoId).addEventListener('click', (event) => {
+                                                                        event.preventDefault();
+                                                                        const buttonId = event.target.id;
+                                                                        const modifiedId = buttonId.substring(4);
+                                                                        console.log(modifiedId);
+                                                                        })
+                        }else {
+                            document.getElementById('del_'+item.OpoId).style.display = 'none';
+                        }
+                        if (userName != ''){
+                            document.getElementById('opo_'+item.OpoId).style.display = '';
+                            document.getElementById('opo_'+item.OpoId).addEventListener('click', (event) => {
+                                                                        event.preventDefault();
+                                                                        const buttonId = event.target.id;
+                                                                        const modifiedId = buttonId.substring(4);
+                                                                        console.log(modifiedId);
+                                                                        })
+                        }else {
+                            document.getElementById('opo_'+item.OpoId).style.display = 'none';
+                        }
 
                         });
                     
@@ -101,7 +127,8 @@
         </script>
 
 
-        <script src="JS/cognito-auth.js"></script>
+    <!--<script src="JS/cognito-auth.js"></script>-->
+
     </main>
     <footer>
         <p>&copy; 2025 Plataforma de Voluntariado. Todos los derechos reservados.</p>
