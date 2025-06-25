@@ -46,8 +46,8 @@ var UnoServerLess = window.UnoServerLess || {};
                     //console.log(cognitoUser.username);
                 }
             });
-            console.log(cognitoUser);
-            console.log(cognitoUser.username);
+            //console.log(cognitoUser);
+            //console.log(cognitoUser.username);
             document.getElementById('user-name').innerText = `Hola, ${cognitoUser.username}`;
             if (document.getElementById('reg-btn'))
                 document.getElementById('reg-btn').style.display = 'none';
@@ -192,7 +192,6 @@ var UnoServerLess = window.UnoServerLess || {};
     }
 
     if (document.getElementById('signOut2')){
-        console.log('existe el elemento')
         document.getElementById('signOut2').addEventListener('click', function(event) {
             event.preventDefault(); // Evita que el enlace navegue a otra página
             UnoServerLess.signOut();
