@@ -66,6 +66,10 @@ header .acciones .boton:hover {
     background-color: #ddd;
 }
 
+#user-name{
+    align-self: center;
+}
+
 /* Hero Section */
 .hero {
     background-image: url(../IMG/portada.webp);
@@ -263,6 +267,10 @@ footer {
     margin-top: 3rem;
 }
 
+.opor-btn:hover {
+    background-color: #005f8a;
+}
+
 .del-btn {
     background-color: #0077b6;
     color: white;
@@ -272,6 +280,10 @@ footer {
     cursor: pointer;
     text-decoration: none;
     margin-top: 3rem;
+}
+
+.del-btn:hover {
+    background-color: #005f8a;
 }
 
 .resultados {
