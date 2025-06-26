@@ -60,7 +60,7 @@ var UnoServerLess = window.UnoServerLess || {};
                 document.getElementById('new-btn').style.display = 'block';
         } else {
             if (document.getElementById('user-name'))
-                document.getElementById('user-name').innerText = ``;
+                document.getElementById('user-name').innerText = ` `;
             if (document.getElementById('reg-btn'))
                 document.getElementById('reg-btn').style.display = 'block';
             if (document.getElementById('sin-btn'))
