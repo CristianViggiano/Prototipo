@@ -237,7 +237,8 @@ var UnoServerLess = window.UnoServerLess || {};
         // Crear el objeto JSON con el formato especificado
         const data = {
             User: cognitoUser.username,
-            Url: "https://petepua.com/wp-content/uploads/2022/12/Refugio-Patitas-de-San-Vicente-logo.-heroes-sin-capa.--150x150.jpg",
+           // Url: "https://petepua.com/wp-content/uploads/2022/12/Refugio-Patitas-de-San-Vicente-logo.-heroes-sin-capa.--150x150.jpg",
+            Url: "IMG/manos.png",
             ProName: name,
             Ubi: location,
             Title: title,
@@ -258,6 +259,7 @@ var UnoServerLess = window.UnoServerLess || {};
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
+            window.location.href = "oportunidades.html";
         })
         .catch(error => {
             console.error('Error:', error);
@@ -265,5 +267,31 @@ var UnoServerLess = window.UnoServerLess || {};
 
     });
     }
+
+    function borrarOpo(id){
+        const payload = {
+            OpoId: id
+        };
+        // Enviar los datos al API Gateway de Amazon
+        fetch('https://6eqz1f0191.execute-api.sa-east-1.amazonaws.com/dev/CargarOportunidad', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            window.location.href = "oportunidades.html";
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    }
+    window.borrarOpo = borrarOpo;
+
+
 
 }(jQuery));

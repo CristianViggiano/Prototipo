@@ -60,7 +60,3 @@ document.querySelector('.carousel').addEventListener('mouseleave', startAutoSlid
 createDots();
 showTestimonio(index);
 startAutoSlide();
-
-
-//fin de carousel de testimonios
-
