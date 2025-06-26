@@ -59,7 +59,8 @@ var UnoServerLess = window.UnoServerLess || {};
             if (document.getElementById('new-btn'))
                 document.getElementById('new-btn').style.display = 'block';
         } else {
-            document.getElementById('user-name').innerText = ``;
+            if (document.getElementById('user-name'))
+                document.getElementById('user-name').innerText = ``;
             if (document.getElementById('reg-btn'))
                 document.getElementById('reg-btn').style.display = 'block';
             if (document.getElementById('sin-btn'))
