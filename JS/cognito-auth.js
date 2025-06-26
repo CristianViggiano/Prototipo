@@ -244,7 +244,8 @@ var UnoServerLess = window.UnoServerLess || {};
             Title: title,
             HxS: parseInt(hours),
             Type: category,
-            Desc: description
+            Desc: description,
+            Volun: []
         };
     
         // Enviar los datos al API Gateway de Amazon
@@ -291,6 +292,31 @@ var UnoServerLess = window.UnoServerLess || {};
 
     }
     window.borrarOpo = borrarOpo;
+
+    function aplicaOpo(id,user){
+        const payload = {
+            OpoId: id,
+            nuevoValor: user
+        };
+        // Enviar los datos al API Gateway de Amazon
+        fetch('https://6eqz1f0191.execute-api.sa-east-1.amazonaws.com/dev/CargarOportunidad', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            window.location.href = "oportunidades.html";
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    }
+    window.aplicaOpo = aplicaOpo;
 
 
 

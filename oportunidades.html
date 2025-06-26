@@ -71,6 +71,7 @@
                             <h3>${item.Title}</h3>
                             <p class="tags">${item.HxS}h/sem • ${item.Type}</p>
                             <p class="tags">${item.Desc}</p><p></p>
+                            <p class="tags">Voluntarios: ${item.Volun}</p><p></p>
                             <a href="" id="opo_${item.OpoId}"" class="opor-btn" style="display: none">Aplicar</a>
                             <a href="" id="del_${item.OpoId}" class="del-btn" style="display: none">Borrar</a>
                             </div>
@@ -98,6 +99,7 @@
                                                                         const buttonId = event.target.id;
                                                                         const modifiedId = buttonId.substring(4);
                                                                         console.log(modifiedId);
+                                                                        aplicaOpo(modifiedId,userName);
                                                                         })
                         }else {
                             document.getElementById('opo_'+item.OpoId).style.display = 'none';
