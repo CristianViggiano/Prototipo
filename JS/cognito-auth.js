@@ -48,7 +48,8 @@ var UnoServerLess = window.UnoServerLess || {};
             });
             //console.log(cognitoUser);
             //console.log(cognitoUser.username);
-            document.getElementById('user-name').innerText = cognitoUser.username;
+            if (document.getElementById('user-name'))
+                document.getElementById('user-name').innerText = cognitoUser.username;
             if (document.getElementById('reg-btn'))
                 document.getElementById('reg-btn').style.display = 'none';
             if (document.getElementById('sin-btn'))
